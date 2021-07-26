@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-@RequestMapping("/sala1")
+@RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping(method = GET)
-    public String index(){
+    @RequestMapping(value= "sala1", method = GET)
+    public String sala1(){
         return "index";
     }
 }
