@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/sala1")
 public class IndexController {
 
     @RequestMapping(method = GET)
