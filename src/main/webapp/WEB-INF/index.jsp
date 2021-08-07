@@ -2,15 +2,14 @@
 <html>
 <head>
 <%@ page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sala</title>
 </head>
 <body>
-    <h1>Escola Bepupa</h1>
+    <h1>${titulo}</h1>
     <ul>
         <c:forEach items="${salas}" var="sala">
         <li><a href="sala/${sala}"> Sala - ${sala} </a></li>

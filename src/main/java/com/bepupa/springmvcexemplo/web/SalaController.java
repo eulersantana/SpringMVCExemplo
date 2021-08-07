@@ -8,42 +8,47 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import static java.util.Objects.isNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-@RequestMapping("/sala")
+@RequestMapping(value="/sala")
 public class SalaController {
     private Sala sala1 = new Sala("1");
     private Sala sala2 = new Sala("2");
 
 
-    @RequestMapping(value= "{id}", method = GET)
-    public ModelAndView sala(@PathVariable String id, Model model){
-
+    @RequestMapping(value= "{sala}", method = GET)
+    public ModelAndView sala(@PathVariable String sala, Model model){
+        model.addAttribute("titulo", "Sala - " + sala);
         ModelAndView modelAndView =  new ModelAndView("sala/sala");
-        if (id.equals("1"))
+
+        if (sala.equals("1"))
             modelAndView.addObject("estudantes", sala1.getEstudantes());
-        if (id.equals("2"))
+        if (sala.equals("2"))
             modelAndView.addObject("estudantes", sala2.getEstudantes());
+
         model.addAttribute("form", new FormEstudante());
-        modelAndView.addObject("sala", id);
+        modelAndView.addObject("sala", sala);
         return modelAndView;
     }
 
     @RequestMapping(value = { "add-estudante" } , method = POST)
     public ModelAndView recebeForm(@ModelAttribute("form") FormEstudante formEstudante, Model model){
-//        model.addAttribute("msg", "Você enviou: " + form.getNome() + " " + form.getSobrenome() );
+
+        if (formEstudante.getNomeEstudante().isEmpty())
+            model.addAttribute("msg", "O nome nao pode ser em branco.");
+        else if(isNull(formEstudante.getNotaEstudante()))
+            model.addAttribute("msg", "A nota nao pode ser em branco.");
+        else{
+            // Adicionando Aluno na sala
+            addEstudante(formEstudante);
+        }
+
         ModelAndView modelAndView =  new ModelAndView("redirect:"+formEstudante.getSalaNome());
-        addEstudante(formEstudante);
-        if (formEstudante.getSalaNome().equals("1"))
-            modelAndView.addObject("estudantes", sala1.getEstudantes());
-        if (formEstudante.getSalaNome().equals("2"))
-            modelAndView.addObject("estudantes", sala2.getEstudantes());
-        model.addAttribute("form", new FormEstudante());
         return modelAndView;
     }
 
