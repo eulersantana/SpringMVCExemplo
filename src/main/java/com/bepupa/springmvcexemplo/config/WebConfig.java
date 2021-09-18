@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.bepupa.springmvcexemplo.web"})
+@ComponentScan(basePackages = {"com.bepupa.springmvcexemplo.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean

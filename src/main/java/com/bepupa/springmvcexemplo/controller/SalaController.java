@@ -1,4 +1,4 @@
-package com.bepupa.springmvcexemplo.web;
+package com.bepupa.springmvcexemplo.controller;
 
 import com.bepupa.springmvcexemplo.model.Estudante;
 import com.bepupa.springmvcexemplo.model.FormEstudante;
