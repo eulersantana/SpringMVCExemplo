@@ -9,4 +9,4 @@ spec:
   lifecycle: production
   owner: onboarding
   tags: 
-   - java
+    - java
