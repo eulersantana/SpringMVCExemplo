@@ -8,3 +8,4 @@ spec:
   type: service
   lifecycle: production
   owner: onboarding
+  tags: java
