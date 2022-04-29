@@ -6,5 +6,5 @@ metadata:
     github.com/project-slug: eulersantana/SpringMVCExemplo
 spec:
   type: service
-  lifecycle: unknown
+  lifecycle: production
   owner: onboarding
