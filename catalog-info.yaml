@@ -4,7 +4,7 @@ metadata:
   name: SpringMVCExemplo
   annotations:
     github.com/project-slug: eulersantana/SpringMVCExemplo
-  ags: 
+  tags:
     - java
     - spring-boot
     - mysql
@@ -12,4 +12,3 @@ spec:
   type: service
   lifecycle: production
   owner: onboarding
-  t
